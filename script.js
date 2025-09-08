@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollEffects();
     initSmoothScrolling();
     initBackToTop();
-    initPrintFunction();
-    initSearchFunction();
-    initThemeToggle();
+    // initPrintFunction(); // 已移除打印功能
+    // initSearchFunction(); // 已移除搜索功能
+    // initThemeToggle(); // 已移除主题切换功能
 });
 
 // 滚动效果
@@ -121,80 +121,7 @@ function initBackToTop() {
     });
 }
 
-// 打印功能
-function initPrintFunction() {
-    // 创建打印按钮
-    const printBtn = document.createElement('button');
-    printBtn.innerHTML = '🖨️ 打印';
-    printBtn.className = 'print-btn';
-    printBtn.setAttribute('aria-label', '打印页面');
-    
-    // 添加到头部
-    const header = document.querySelector('.header');
-    header.appendChild(printBtn);
-    
-    // 添加样式
-    const style = document.createElement('style');
-    style.textContent = `
-        .print-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 10px 15px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-        
-        .print-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-2px);
-        }
-        
-        @media (max-width: 768px) {
-            .print-btn {
-                top: 15px;
-                right: 15px;
-                padding: 8px 12px;
-                font-size: 12px;
-            }
-        }
-        
-        @media print {
-            .print-btn, .back-to-top {
-                display: none !important;
-            }
-            
-            .container {
-                box-shadow: none;
-                margin: 0;
-            }
-            
-            .header {
-                background: #2c3e50 !important;
-                -webkit-print-color-adjust: exact;
-                color-adjust: exact;
-            }
-            
-            .content-section {
-                break-inside: avoid;
-                box-shadow: none;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // 点击打印
-    printBtn.addEventListener('click', function() {
-        window.print();
-    });
-}
+// 打印功能已移除
 
 // 搜索功能
 function initSearchFunction() {
@@ -501,26 +428,10 @@ window.addEventListener('load', function() {
 
 // 添加键盘快捷键
 document.addEventListener('keydown', function(e) {
-    // Ctrl/Cmd + F 聚焦搜索框
-    if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
-        e.preventDefault();
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-            searchInput.focus();
-        }
-    }
+    // 搜索功能已移除
     
-    // ESC 关闭搜索结果
-    if (e.key === 'Escape') {
-        const searchResults = document.getElementById('searchResults');
-        if (searchResults) {
-            searchResults.style.display = 'none';
-        }
-    }
+    // 搜索功能已移除
     
-    // Ctrl/Cmd + P 打印
-    if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
-        e.preventDefault();
-        window.print();
-    }
+    // 打印功能已移除
 });
+
